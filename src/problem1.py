@@ -107,7 +107,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # done: 3. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # -------------------------------------------------------------------------
@@ -153,13 +153,13 @@ def run_test_problem1a():
     # -------------------------------------------------------------------------
 
 #   Test 3:
-    expected = 2
+    expected = -0.1126
     actual = problem1a(17, 60)
     print('Test 1 expected:', expected)
     print('       actual:  ', actual)
 
     #   Test 3:
-    expected = 2
+    expected = 0.1639
     actual = problem1a(45, 90)
     print('Test 1 expected:', expected)
     print('       actual:  ', actual)
@@ -185,13 +185,13 @@ def problem1a(m, n):
 
     if abs(m) <= abs(n):
         total = 0
-        for k in range((m ** 2), (n ** 2), 1):
+        for k in range((m ** 2), (n ** 2 + 1), 1):
             total = total + (math.sin(k))
         return total
 
 
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
