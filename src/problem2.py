@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Elle Vuotto.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -102,8 +102,35 @@ def problem2a(circle, rectangle, window):
       :type rectangle: rg.Rectangle
       :type window:    rg.RoseWindow
     """
+
+    circle.attach_to(window)
+    rectangle.attach_to(window)
+
+    window.render(1)
+    window.continue_on_mouse_click()
+
+    x1 = rectangle.corner_1.x
+    x2 = rectangle.corner_2.x
+    y1 = rectangle.corner_1.y
+    y2 = rectangle.corner_2.y
+
+    rightpoint = rg.Point(x2, y1)
+    leftpoint = rg.Point(x1, y2)
+    line = rg.Line(rightpoint, leftpoint)
+    line.attach_to(window)
+    window.render(1)
+    window.continue_on_mouse_click()
+
+    circle.fill_color = rectangle.outline_color
+    circle.attach_to(window)
+    window.render(1)
+
+
+
+
+
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
