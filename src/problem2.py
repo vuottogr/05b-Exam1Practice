@@ -200,6 +200,28 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+
+    rect.attach_to(win)
+
+    x1 = rect.corner_1.x
+    x2 = rect.corner_2.x
+    y1 = rect.corner_1.y
+    y2 = rect.corner_2.y
+
+    h = abs(x1 - x2)
+    l = abs(y1 - y2)
+
+    for k in range(n):
+        start = rg.Point((x1 + (h/2) * 2 * k * delta), (y1 - (l / 2) * 2 * k * delta))
+        end = rg.Point((x2 - (h/2) * 2 * k * delta), (y2 + (l / 2) * 2 * k * delta))
+        rectangle = rg.Rectangle(start, end)
+        rectangle.attach_to(win)
+
+    win.render(1)
+
+
+
+
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).
