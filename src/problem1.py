@@ -369,18 +369,18 @@ def problem1c(n):
     """
 
     if n >= 2:
-        for k in range(2, n, 1):
-            total = 1
+        total = 1
+        for k in range(2, (n + 1)):
             if is_prime(k):
                 total = total * k
-            num = sum_of_digits(total)
-            return num
+        sum = sum_of_digits(total)
+        return sum
 
 
 
 
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # done: 7. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
