@@ -202,21 +202,17 @@ def problem2b(rect, n, delta, win):
     """
 
     rect.attach_to(win)
-    x1 = rect.get_upper_corner().x
-    x2 = rect.get_low_corner().x
-    y1 = rect.get_upper_corner.y
-    y2 = rect.get_low_corner.y
+    x1 = rect.get_lower_left_corner().x
+    x2 = rect.get_upper_right_corner().x
+    y1 = rect.get_lower_left_corner().y
+    y2 = rect.get_upper_right_corner().y
 
-    h = abs(x1 - x2)
-    l = abs(y1 - y2)
-
-    for k in range(n - 1):
-        start = rg.Point((x1 + (h/2) * 2 * k * delta), (y1 - (l / 2) * 2 * k * delta))
-        end = rg.Point((x2 - (h/2) * 2 * k * delta), (y2 + (l / 2) * 2 * k * delta))
+    for k in range(n):
+        start = rg.Point((x1 - k * delta), (y1 + k * delta))
+        end = rg.Point((x2 + k * delta), (y2 - k * delta))
         rectangle = rg.Rectangle(start, end)
         rectangle.attach_to(win)
-
-    win.render(1)
+    win.render()
 
 
 
