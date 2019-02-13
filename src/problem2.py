@@ -202,7 +202,6 @@ def problem2b(rect, n, delta, win):
     """
 
     rect.attach_to(win)
-
     x1 = rect.get_upper_corner().x
     x2 = rect.get_low_corner().x
     y1 = rect.get_upper_corner.y

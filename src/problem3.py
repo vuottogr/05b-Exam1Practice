@@ -38,7 +38,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -98,11 +98,11 @@ def run_test_problem3a():
 
 
     # Test 5 (it is on window 3):
-    point = rg.Point(30, 40)
-    expected = 218
-    answer = problem3a(window3, point, 6)
+    point = rg.Point(140, 150)
+    expected = 25
+    answer = problem3a(window3, point, 5)
     print()
-    print('Test 4 expected:', expected)
+    print('Test 5 expected:', expected)
     print('       actual:  ', answer)
 
     window3.close_on_mouse_click()
@@ -147,16 +147,23 @@ def problem3a(window, point, n):
         :type n:      int
     """
 
-
-    line = rg.Line(point, rg.Point((point.x - 50), point.y))
-    line.attach_to(window)
-
+    count = 0
     for k in range(n):
-        return k
+        start = rg.Point(point.x + (20 * k), point.y + (10 * k))
+        end = rg.Point(point.x + (20 * k), point.y + (10 * k) + 50)
+        line = rg.Line(start, end)
+        if 2 * k < 13:
+            line.thickness = 1 + 2 * k
+        else:
+            line.thickness = 13
+        line.attach_to(window)
+        count = count + line.thickness
+    window.render()
+    return count
 
 
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -219,8 +226,19 @@ def problem3b(m, point1):
         :type m:      int
         :type point1: rg.Point
     """
+
+    window = rg.RoseWindow(400, 650)
+    count = 0
+    for k in range(m):
+        problem3a(window, point1, 3 + 2 * k)
+        window.render()
+        point1.y = point1.y + 60
+        count = count + problem3a(window, point1, 3 + 2 * k)
+    window.close_on_mouse_click()
+    return count
+
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
